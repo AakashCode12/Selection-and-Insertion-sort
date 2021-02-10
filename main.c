@@ -10,22 +10,22 @@ void selectionSort(int arr[], int n)
     int countComparisions = 0;
     int minInRange = arr[0];
     int temp = 454;
-    int posMin=0;
-    for (int i = 0; i < n; i++)
+    int posMin = 0;
+    for (int i = 0; i < n - 1; i++)
     {
-      minInRange = arr[i];
-      for (int j = i; j < n; j++)
-      {
-        countComparisions++;
-        if (arr[j] < minInRange)
+        minInRange = arr[i];
+        for (int j = i + 1; j < n; j++)
         {
-          minInRange = arr[j];
-          posMin=j;
+            countComparisions++;
+            if (arr[j] < minInRange)
+            {
+                minInRange = arr[j];
+                posMin = j;
+            }
         }
-      }
-      temp = arr[i];
-      arr[i] = arr[posMin];
-      arr[posMin] = temp;
+        temp = arr[i];
+        arr[i] = arr[posMin];
+        arr[posMin] = temp;
     }
     for (int i = 0; i < n; i++)
     {
@@ -37,6 +37,28 @@ void selectionSort(int arr[], int n)
 
 void insertionSort(int arr[], int n)
 {
+    // int currentPos=0;
+    int temp = 0;
+    int countComparisions = 0;
+    for (int i = 1; i < n; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            countComparisions++;
+            if (arr[i] < arr[j])
+            {
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d\t", arr[i]);
+    }
+
+    printf("\nThe no of Comparisions are %d", countComparisions);
 }
 
 int main()
@@ -69,6 +91,7 @@ int main()
             selectionSort(arr, n);
             break;
         case 2:
+           
             insertionSort(arr, n);
             break;
         case 3:
