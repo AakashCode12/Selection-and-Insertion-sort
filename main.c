@@ -1,0 +1,83 @@
+#include <stdio.h>
+
+//todo Definition of functions
+void selectionSort(int arr[], int n);
+void insertionSort(int arr[], int n);
+
+//Functions
+void selectionSort(int arr[], int n)
+{
+    int countComparisions = 0;
+    int minInRange = arr[0];
+    int temp = 454;
+    int posMin=0;
+    for (int i = 0; i < n; i++)
+    {
+      minInRange = arr[i];
+      for (int j = i; j < n; j++)
+      {
+        countComparisions++;
+        if (arr[j] < minInRange)
+        {
+          minInRange = arr[j];
+          posMin=j;
+        }
+      }
+      temp = arr[i];
+      arr[i] = arr[posMin];
+      arr[posMin] = temp;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d\t", arr[i]);
+    }
+
+    printf("\nThe no of Comparisions are %d", countComparisions);
+}
+
+void insertionSort(int arr[], int n)
+{
+}
+
+int main()
+{
+    int option = 0;
+    printf("\nThe Selection Sort and Insertion Sort\n");
+    printf("\nEnter the size of array : ");
+    int n;
+    scanf("%d", &n);
+
+    int arr[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("\nEnter the Element no %d : ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+    printf("\n***--------Main Menu--------***");
+    printf("\nPress the following keys for following functions");
+    printf("\n1)  Selection Sort\n2)  Insertion Sort\n3)  Exit\n");
+    do
+    {
+
+        printf("\nYou want to Perform Function No : ");
+        scanf("%d", &option);
+        switch (option)
+        {
+        case 1:
+
+            selectionSort(arr, n);
+            break;
+        case 2:
+            insertionSort(arr, n);
+            break;
+        case 3:
+            //! writing so that it does not come in default when we select option 3
+            break;
+        default:
+            printf("\nInvalid Option key is pressed\n");
+            break;
+        }
+    } while (option != 3);
+    return 0;
+}
