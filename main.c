@@ -91,7 +91,6 @@ int main()
             selectionSort(arr, n);
             break;
         case 2:
-           
             insertionSort(arr, n);
             break;
         case 3:
