@@ -11,9 +11,10 @@ void selectionSort(int arr[], int n)
     int minInRange = arr[0];
     int temp = 454;
     int posMin = 0;
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < n; i++)
     {
         minInRange = arr[i];
+        posMin = i;
         for (int j = i + 1; j < n; j++)
         {
             countComparisions++;
@@ -87,10 +88,11 @@ int main()
         switch (option)
         {
         case 1:
-
+            printf("\nThe Selection Sort Sorted array is : \n");
             selectionSort(arr, n);
             break;
         case 2:
+            printf("\nThe Insertion Sort Sorted array is : \n");
             insertionSort(arr, n);
             break;
         case 3:
